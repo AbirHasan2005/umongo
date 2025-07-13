@@ -132,8 +132,8 @@ class BaseField(ma.fields.Field):
 
         super().__init__(*args, **kwargs)
 
-        self._ma_kwargs.setdefault('missing', self.default)
-        self._ma_kwargs.setdefault('default', self.default)
+        self._ma_kwargs.setdefault('missing', self.dump_default)
+        self._ma_kwargs.setdefault('default', self.dump_default)
 
         # Overwrite error_messages to handle i18n translation
         self.error_messages = I18nErrorDict(self.error_messages)
